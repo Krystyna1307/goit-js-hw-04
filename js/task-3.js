@@ -1,23 +1,14 @@
-const profile = {
-    username: "Jacob",
-    playTime: 300,
+function deliverPizza(pizzaName) {
+  return `Delivering ${pizzaName} pizza.`;
+}
 
-    changeUsername(newName) {
-        profile.username = newName;
-    },
-    updatePlayTime(hours) {
-        profile.playTime = profile.playTime + hours;
-    },
-    getInfo() {
-        return `${profile.username} has ${profile.playTime} active hours!`
-    },
+function makePizza(pizzaName) {
+  return `Pizza ${pizzaName} is being prepared, please wait...`;
+}
 
-};
+function makeMessage(pizzaName, callback) {
+  return callback(pizzaName);
+}
 
-console.log(profile.getInfo()); // "Jacob has 300 active hours!"
-
-profile.changeUsername("Marco");
-console.log(profile.getInfo()); // "Marco has 300 active hours!"
-
-profile.updatePlayTime(20);
-console.log(profile.getInfo()); // "Marco has 320 active hours!"
+console.log(makeMessage("Royal Grand", makePizza));
+console.log(makeMessage("Ultracheese", deliverPizza));
